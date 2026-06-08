@@ -5,7 +5,7 @@ async function init(){
 }
 
 async function init(){
-    const checkLogin = await fetch('/api/user/check', {
+    const checkLogin = await fetch('https://lokost-backend-production.up.railway.app/api/user/check', {
         credentials: 'include'
     });
 
@@ -25,7 +25,7 @@ async function init(){
     const formatTanggal = hari.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     tanggal.textContent = formatTanggal;
 
-    const resBudget = await fetch('/api/budget', {
+    const resBudget = await fetch('https://lokost-backend-production.up.railway.app/api/budget', {
         method : 'GET',
         credentials : 'include'
     })
@@ -45,7 +45,7 @@ async function init(){
     }
 
     async function renderTransaksiHariIni(){
-        const resTransaksi = await fetch('/api/transaksi',{
+        const resTransaksi = await fetch('https://lokost-backend-production.up.railway.app/api/transaksi',{
             method : 'GET',
             credentials : 'include'
         });
@@ -68,13 +68,13 @@ async function init(){
     await renderTransaksiHariIni();
 
     async function kategoriOverview(){
-        const resKategori = await fetch('/api/kategori', {
+        const resKategori = await fetch('https://lokost-backend-production.up.railway.app/api/kategori', {
             method : 'GET',
             credentials : 'include'
         });
         const kategori = await resKategori.json();
         
-        const resTransaksiKategori = await fetch('/api/transaksi', {
+        const resTransaksiKategori = await fetch('https://lokost-backend-production.up.railway.app/api/transaksi', {
             method : 'GET',
             credentials : 'include'
         });

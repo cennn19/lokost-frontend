@@ -1,5 +1,5 @@
 async function checkAuth(){
-    const checkLogin = await fetch('/api/user/check', {
+    const checkLogin = await fetch('https://lokost-backend-production.up.railway.app/api/user/check', {
         credentials: 'include'
     });
     if(!checkLogin.ok) window.location.href = 'login.html';
@@ -8,13 +8,13 @@ async function checkAuth(){
 checkAuth();
 
 async function init(){
-    const budgetRes = await fetch(`/api/budget`, {
+    const budgetRes = await fetch(`https://lokost-backend-production.up.railway.app/api/budget`, {
         method : "GET",
         credentials : 'include'
     })
     const budgetData = await budgetRes.json()
     
-    const transaksiRes = await fetch(`/api/transaksi`,{
+    const transaksiRes = await fetch(`https://lokost-backend-production.up.railway.app/api/transaksi`,{
         method : "GET",
         credentials : 'include'
     })

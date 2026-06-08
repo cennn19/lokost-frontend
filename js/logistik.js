@@ -1,5 +1,5 @@
 async function checkAuth(){
-    const checkLogin = await fetch('/api/user/check', {
+    const checkLogin = await fetch('https://lokost-backend-production.up.railway.app/api/user/check', {
         credentials: 'include'
     });
     if(!checkLogin.ok) window.location.href = 'login.html';
@@ -21,7 +21,7 @@ btnTambahBarang.addEventListener('click', async function(){
         alert("Nominal harus lebih dari 0")
         return;
     }else {
-        const resLogistik = await fetch(`/api/logistik`,{
+        const resLogistik = await fetch(`https://lokost-backend-production.up.railway.app/api/logistik`,{
             method : 'POST',
             headers : {
                 'Content-type' : 'application/json',
@@ -41,7 +41,7 @@ btnTambahBarang.addEventListener('click', async function(){
 });
 
 async function renderLogistik(){
-    const resLogistik = await fetch(`/api/logistik`, {
+    const resLogistik = await fetch(`https://lokost-backend-production.up.railway.app/api/logistik`, {
         credentials : 'include'
     });
     const logistik = await resLogistik.json();
@@ -78,7 +78,7 @@ async function renderLogistik(){
             
             const nominalHarga = btn.dataset.harga * parseInt(promptJumlah);
 
-            const dataTransaksi = await fetch(`/api/transaksi`, {
+            const dataTransaksi = await fetch(`https://lokost-backend-production.up.railway.app/api/transaksi`, {
                 method : "POST",
                 headers : {
                     'Content-type' : 'application/json',
@@ -92,7 +92,7 @@ async function renderLogistik(){
                 })
             })
 
-            const resBudget = await fetch(`/api/budget`,{
+            const resBudget = await fetch(`https://lokost-backend-production.up.railway.app/api/budget`,{
                 method : "GET",
                 credentials : 'include'
             })
@@ -100,7 +100,7 @@ async function renderLogistik(){
             const budgetData = await resBudget.json();
             const terpakaiSekarang = budgetData[0].terpakai + nominalHarga; 
 
-            await fetch(`/api/budget`, {
+            await fetch(`https://lokost-backend-production.up.railway.app/api/budget`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 credentials : 'include',
@@ -108,7 +108,7 @@ async function renderLogistik(){
             })
 
 
-            const logistik = await fetch(`/api/logistik/${index}`,{
+            const logistik = await fetch(`https://lokost-backend-production.up.railway.app/api/logistik/${index}`,{
                 method : "PUT",
                 headers : {
                     'Content-type' : 'application/json', 
@@ -157,7 +157,7 @@ async function renderLogistik(){
                     alert(`Stok ${nama} hampir habis!`);
                 }
 
-                await fetch(`/api/logistik/${index}`, {
+                await fetch(`https://lokost-backend-production.up.railway.app/api/logistik/${index}`, {
                     method : "PUT",
                     credentials : 'include',
                     body : JSON.stringify({

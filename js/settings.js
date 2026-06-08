@@ -1,5 +1,5 @@
 async function checkAuth(){
-    const checkLogin = await fetch('/api/user/check', {
+    const checkLogin = await fetch('https://lokost-backend-production.up.railway.app/api/user/check', {
         credentials: 'include'
     });
     if(!checkLogin.ok) window.location.href = 'login.html';
@@ -39,7 +39,7 @@ const btnHapusData = document.getElementById('btn-hapus-data');
 
 btnHapusData.addEventListener('click', async function(){
     if(confirm('Anda yakin ingin menghapus semua data?')){
-        await fetch(`/api/user/data`,{
+        await fetch(`https://lokost-backend-production.up.railway.app/api/user/data`,{
             method : 'DELETE',
             credentials : 'include'
         })

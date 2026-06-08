@@ -1,5 +1,5 @@
 async function checkAuth(){
-    const checkLogin = await fetch('/api/user/check', {
+    const checkLogin = await fetch('https://lokost-backend-production.up.railway.app/api/user/check', {
         credentials: 'include'
     });
     if(!checkLogin.ok) window.location.href = 'login.html';
@@ -19,7 +19,7 @@ btnSimpanBudget.addEventListener('click', async function() {
         alert("Nominal harus lebih dari 0")
         return;
     }else {
-        const saveBudget = await fetch('/api/budget', {
+        const saveBudget = await fetch('https://lokost-backend-production.up.railway.app/api/budget', {
             method : 'POST',
             headers : {
                 'Content-type' : 'application/json',
@@ -67,13 +67,13 @@ btnSimpanBudget.addEventListener('click', async function() {
                 })
             })          
 
-            await fetch(`/api/kategori/all`,{
+            await fetch(`https://lokost-backend-production.up.railway.app/api/kategori/all`,{
                 method : 'DELETE',
                 credentials : 'include'
             })
 
             for(const item of kategoriUpdated){
-                await fetch('/api/kategori', {
+                await fetch('https://lokost-backend-production.up.railway.app/api/kategori', {
                     method : 'POST',
                     headers :{
                         'Content-type' : 'application/json',
@@ -104,7 +104,7 @@ btnTambahBudget.addEventListener('click',async function(){
         return;
     }
 
-    const resBudget = await fetch('/api/budget',{
+    const resBudget = await fetch('https://lokost-backend-production.up.railway.app/api/budget',{
         method : 'GET',
         credentials : 'include'
     })
@@ -113,7 +113,7 @@ btnTambahBudget.addEventListener('click',async function(){
     const totalBudget = budgetData[0].total + parseInt(nominalTambahBudget.value);
 
 
-    const budgetTotal = await fetch('/api/budget',{
+    const budgetTotal = await fetch('https://lokost-backend-production.up.railway.app/api/budget',{
         method : 'PUT',
         headers : {
             'Content-type' : 'application/json',
@@ -122,7 +122,7 @@ btnTambahBudget.addEventListener('click',async function(){
         body : JSON.stringify({total: totalBudget})
     })
 
-    const resTransaksi = await fetch('/api/transaksi',{
+    const resTransaksi = await fetch('https://lokost-backend-production.up.railway.app/api/transaksi',{
         method : 'POST',
         headers : {
             'Content-type' : 'application/json',

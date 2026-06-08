@@ -1,5 +1,5 @@
 async function checkAuth(){
-    const checkLogin = await fetch('/api/user/check', {
+    const checkLogin = await fetch('https://lokost-backend-production.up.railway.app/api/user/check', {
         credentials: 'include'
     });
     if(!checkLogin.ok) window.location.href = 'login.html';
@@ -28,7 +28,7 @@ btnSimpanTransaksi.addEventListener('click', async function(){
         const jenis = inputJenisTransaksi.value;
         const tanggal = inputTanggalTransaksi.value;
 
-       const resBudget = await fetch('/api/budget',{
+       const resBudget = await fetch('https://lokost-backend-production.up.railway.app/api/budget',{
         method : 'GET',
         credentials : 'include'
        })
@@ -36,7 +36,7 @@ btnSimpanTransaksi.addEventListener('click', async function(){
        const budgetData = await resBudget.json();
        const terpakaiSekarang = budgetData[0].terpakai + nominal;
 
-        const responTransaksi = await fetch('/api/transaksi',{
+        const responTransaksi = await fetch('https://lokost-backend-production.up.railway.app/api/transaksi',{
            method : 'POST',
            headers : {
             'Content-type' : 'application/json',
@@ -45,7 +45,7 @@ btnSimpanTransaksi.addEventListener('click', async function(){
            body : JSON.stringify({nama, nominal, jenis, tanggal})
         })
 
-        const responBuget = await fetch('/api/budget',{
+        const responBuget = await fetch('https://lokost-backend-production.up.railway.app/api/budget',{
             method : 'PUT',
             headers : {
                 'Content-type' : 'application/json',
@@ -60,7 +60,7 @@ btnSimpanTransaksi.addEventListener('click', async function(){
 })
 
 async function renderTransaksi(){
-    const response = await fetch('/api/transaksi',{
+    const response = await fetch('https://lokost-backend-production.up.railway.app/api/transaksi',{
         credentials : 'include'
     });
 
@@ -81,7 +81,7 @@ async function renderTransaksi(){
 }
 
 async function loadKategori(){
-    getKategori = await fetch('/api/kategori', {
+    getKategori = await fetch('https://lokost-backend-production.up.railway.app/api/kategori', {
         method : 'GET',
         credentials : 'include'
     });

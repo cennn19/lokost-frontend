@@ -6,7 +6,7 @@ formLogin.addEventListener('submit',async function(e){
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const response = await fetch('/api/user/login',{
+    const response = await fetch('https://lokost-backend-production.up.railway.app/api/user/login',{
         method : 'POST',
         headers : {
             'Content-type' : 'application/json'

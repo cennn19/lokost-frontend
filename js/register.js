@@ -11,7 +11,7 @@ formRegis.addEventListener('submit',async function(e){
         return;
     }
 
-    const response = await fetch('/api/user/register',{
+    const response = await fetch('https://lokost-backend-production.up.railway.app/api/user/register',{
         method : 'POST',
         headers : {
             'Content-type' : 'application/json'
