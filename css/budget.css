@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --primary:        #5BA4E8;
+    --primary-hover:  #4A90D9;
+    --primary-active: #3A7FC9;
+    --primary-light:  #EBF4FD;
+    --primary-soft:   #F0F7FF;
+
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger:  #ef4444;
+
+    --bg-app:     #F4F8FC;
+    --bg-surface: #ffffff;
+
+    --text-heading: #0f172a;
+    --text-body:    #475569;
+    --text-muted:   #94a3b8;
+
+    --border: #e2e8f0;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+    --shadow-md: 0 4px 14px rgba(0,0,0,.05);
+    --shadow-lg: 0 12px 24px rgba(91,164,232,.12);
+
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --sidebar-collapsed: 90px;
+    --sidebar-expanded:  220px;
+    --content-offset:    110px;
+
+    --font: 'DM Sans', Inter, system-ui, -apple-system, sans-serif;
+}
+
+/* =========================
+   RESET
+========================= */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    min-height: 100vh;
+    background: var(--bg-app);
+    color: var(--text-body);
+    font-family: var(--font);
+    overflow-x: hidden;
+}
+
+/* =========================
+   CONTENT OFFSET
+========================= */
+.main-content,
+.main-content-budget,
+.transaksi-layout {
+    margin-left: var(--content-offset);
+    padding: 32px;
+}
+
+.input-logistik,
+.daftar-logistik {
+    margin-left: var(--content-offset);
+    margin-right: 32px;
+}
+
+.section-greeting,
+.danger-section {
+    margin-left: var(--content-offset);
+    margin-right: 32px;
+}
+
+#status-keuangan,
+#grafik-keuangan,
+#kategori-terbesar-keuangan,
+#rata-rata-keuangan {
+    margin-left: var(--content-offset);
+    margin-right: 32px;
+}
+
+/* =========================
+   SPACING
+========================= */
+.input-logistik  { margin-top: 32px; }
+.daftar-logistik { margin-top: 24px; }
+.section-greeting { margin-top: 32px; }
+.danger-section  { margin-top: 24px; }
+#status-keuangan { margin-top: 32px; }
+#grafik-keuangan,
+#kategori-terbesar-keuangan,
+#rata-rata-keuangan { margin-top: 24px; }
+
+/* =========================
+   GLOBAL INPUT & BUTTON
+========================= */
+input, select, textarea { font-family: var(--font); }
+button { font-family: var(--font); }
+
+/* =========================
+   FAB
+========================= */
+.fab {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(91,164,232,.40);
+    transition: transform .2s ease, box-shadow .2s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 28px rgba(91,164,232,.50);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+    margin-left: var(--content-offset);
+    padding: 24px 32px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb {
+    background: #c7d9ec;
+    border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: #a0bdd6; }
+
+/* =========================
+   BOTTOM NAV (Mobile)
+========================= */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    height: 64px;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -2px 12px rgba(91,164,232,.08);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.bottom-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    list-style: none;
+    padding: 0 8px;
+}
+
+.bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+    font-weight: 500;
+    transition: all .18s ease;
+    min-width: 44px;
+}
+
+.bottom-nav-link .bn-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.bottom-nav-link.active,
+.bottom-nav-link:hover {
+    color: var(--primary);
+}
+
+/* ==================================================
+   BUDGET PAGE
+================================================== */
+
+/* =========================
+   LAYOUT
+========================= */
+.main-content-budget{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+/* =========================
+   CARD BASE
+========================= */
+.section-budget-input,
+#section-kategori,
+#tambahan-budget{
+    background:var(--bg-surface);
+
+    border-radius:var(--radius-lg);
+
+    padding:28px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow-md);
+}
+
+/* =========================
+   TITLE
+========================= */
+.section-title{
+    font-size:1.8rem;
+    font-weight:700;
+
+    color:var(--text-heading);
+}
+
+#section-kategori h3{
+    font-size:1.3rem;
+    font-weight:700;
+
+    color:var(--text-heading);
+
+    margin-bottom:18px;
+}
+
+/* =========================
+   INPUT BUDGET
+========================= */
+.budget-input-container{
+    display:flex;
+
+    gap:14px;
+
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+#input-budget{
+    flex:1;
+
+    min-width:250px;
+
+    padding:14px 16px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:1rem;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+#input-budget:focus{
+    border-color:var(--primary);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(79,70,229,.12);
+}
+
+/* =========================
+   BUTTON
+========================= */
+#btn-simpan-budget,
+#btn-simpan-kategori,
+#btn-tambah-budget{
+    border:none;
+
+    padding:14px 20px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #6366f1
+        );
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+#btn-simpan-budget:hover,
+#btn-simpan-kategori:hover,
+#btn-tambah-budget:hover{
+    transform:translateY(-2px);
+}
+
+#btn-simpan-budget:active,
+#btn-simpan-kategori:active,
+#btn-tambah-budget:active{
+    transform:translateY(0);
+}
+
+/* =========================
+   LIST KATEGORI
+========================= */
+#list-kategori{
+    list-style:none;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:16px;
+}
+
+#list-kategori li{
+    background:#f8fafc;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+#list-kategori li:hover{
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-sm);
+}
+
+/* =========================
+   INPUT DALAM KATEGORI
+========================= */
+#list-kategori input{
+    width:100%;
+
+    margin-top:10px;
+
+    padding:12px 14px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    outline:none;
+}
+
+#list-kategori input:focus{
+    border-color:var(--primary);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(79,70,229,.12);
+}
+
+/* =========================
+   TAMBAHAN BUDGET
+========================= */
+#tambahan-budget{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+#nama-tambah-budget,
+#nominal-tambah-budget,
+#tanggal-tambah-budget{
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:.95rem;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+#nama-tambah-budget:focus,
+#nominal-tambah-budget:focus,
+#tanggal-tambah-budget:focus{
+    border-color:var(--primary);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(79,70,229,.12);
+}
+
+/* =========================
+   SECTION ANIMATION
+========================= */
+.section-budget-input,
+#section-kategori,
+#tambahan-budget{
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.section-budget-input:hover,
+#section-kategori:hover,
+#tambahan-budget:hover{
+    box-shadow:var(--shadow-lg);
+}
+
+/* =========================
+   HIDDEN SECTION
+========================= */
+#section-kategori[hidden]{
+    display:none !important;
+}
+
+/* =========================
+   RESPONSIVE LAYOUT
+========================= */
+@media (max-width: 768px) {
+    .site-header { display: none; }
+    .bottom-nav  { display: block; }
+
+    .main-content,
+    .main-content-budget,
+    .transaksi-layout {
+        margin-left: 0;
+        padding: 20px 16px;
+        padding-bottom: 80px;
+    }
+
+    .input-logistik,
+    .daftar-logistik,
+    .section-greeting,
+    .danger-section,
+    #status-keuangan,
+    #grafik-keuangan,
+    #kategori-terbesar-keuangan,
+    #rata-rata-keuangan {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .input-logistik  { margin-top: 20px; }
+    .section-greeting { margin-top: 20px; }
+
+    .site-footer { display: none; }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:768px){
+
+    .section-budget-input,
+    #section-kategori,
+    #tambahan-budget{
+        padding:22px;
+    }
+
+    .section-title{
+        font-size:1.5rem;
+    }
+
+    .budget-input-container{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    #input-budget{
+        min-width:100%;
+    }
+
+    #btn-simpan-budget,
+    #btn-simpan-kategori,
+    #btn-tambah-budget{
+        width:100%;
+    }
+
+}

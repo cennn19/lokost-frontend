@@ -1,0 +1,379 @@
+/* ==================================================
+   LOKOST - NAVIGATION & DESIGN SYSTEM
+================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --primary:        #5BA4E8;
+    --primary-hover:  #4A90D9;
+    --primary-active: #3A7FC9;
+    --primary-light:  #EBF4FD;
+    --primary-soft:   #F0F7FF;
+
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger:  #ef4444;
+
+    --bg-app:     #F4F8FC;
+    --bg-surface: #ffffff;
+
+    --text-heading: #0f172a;
+    --text-body:    #475569;
+    --text-muted:   #94a3b8;
+
+    --border: #e2e8f0;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+    --shadow-md: 0 4px 14px rgba(0,0,0,.05);
+    --shadow-lg: 0 12px 24px rgba(91,164,232,.12);
+
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --sidebar-collapsed: 90px;
+    --sidebar-expanded:  220px;
+    --content-offset:    110px;
+
+    --font: 'DM Sans', Inter, system-ui, -apple-system, sans-serif;
+}
+
+/* =========================
+   RESET
+========================= */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    min-height: 100vh;
+    background: var(--bg-app);
+    color: var(--text-body);
+    font-family: var(--font);
+    overflow-x: hidden;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-collapsed);
+    height: 100vh;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    overflow: hidden;
+    transition: width .28s cubic-bezier(.4,0,.2,1),
+                box-shadow .28s ease;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.site-header:hover {
+    width: var(--sidebar-expanded);
+    box-shadow: var(--shadow-lg);
+}
+
+/* =========================
+   LOGO BOX
+========================= */
+.nav-logo {
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.logo-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: var(--primary-soft);
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity .2s ease .05s,
+                transform .2s ease .05s;
+    letter-spacing: -0.3px;
+}
+
+.site-header:hover .logo-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+.nav-menu { flex: 1; }
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 50px;
+    padding: 0 13px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text-body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background .18s ease,
+                color .18s ease,
+                transform .18s ease;
+}
+
+/* Icon */
+.nav-link .nav-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color .18s ease;
+}
+
+/* Label — tersembunyi saat collapsed */
+.nav-link .nav-label {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity .18s ease .04s,
+                transform .18s ease .04s;
+}
+
+.site-header:hover .nav-link .nav-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-link:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    transform: translateX(3px);
+}
+
+.nav-link.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(91,164,232,.30);
+}
+
+.nav-link.active .nav-icon {
+    color: #fff;
+}
+
+/* =========================
+   CONTENT OFFSET
+========================= */
+.main-content,
+.main-content-budget,
+.transaksi-layout {
+    margin-left: var(--content-offset);
+    padding: 32px;
+}
+
+.input-logistik,
+.daftar-logistik {
+    margin-left: var(--content-offset);
+    margin-right: 32px;
+}
+
+.section-greeting,
+.danger-section {
+    margin-left: var(--content-offset);
+    margin-right: 32px;
+}
+
+#status-keuangan,
+#grafik-keuangan,
+#kategori-terbesar-keuangan,
+#rata-rata-keuangan {
+    margin-left: var(--content-offset);
+    margin-right: 32px;
+}
+
+/* =========================
+   SPACING
+========================= */
+.input-logistik  { margin-top: 32px; }
+.daftar-logistik { margin-top: 24px; }
+.section-greeting { margin-top: 32px; }
+.danger-section  { margin-top: 24px; }
+#status-keuangan { margin-top: 32px; }
+#grafik-keuangan,
+#kategori-terbesar-keuangan,
+#rata-rata-keuangan { margin-top: 24px; }
+
+/* =========================
+   GLOBAL INPUT & BUTTON
+========================= */
+input, select, textarea { font-family: var(--font); }
+button { font-family: var(--font); }
+
+/* =========================
+   FAB
+========================= */
+.fab {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(91,164,232,.40);
+    transition: transform .2s ease, box-shadow .2s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 28px rgba(91,164,232,.50);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+    margin-left: var(--content-offset);
+    padding: 24px 32px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb {
+    background: #c7d9ec;
+    border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: #a0bdd6; }
+
+/* =========================
+   BOTTOM NAV (Mobile)
+========================= */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    height: 64px;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -2px 12px rgba(91,164,232,.08);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.bottom-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    list-style: none;
+    padding: 0 8px;
+}
+
+.bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+    font-weight: 500;
+    transition: all .18s ease;
+    min-width: 44px;
+}
+
+.bottom-nav-link .bn-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.bottom-nav-link.active,
+.bottom-nav-link:hover {
+    color: var(--primary);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .site-header { display: none; }
+    .bottom-nav  { display: block; }
+
+    .main-content,
+    .main-content-budget,
+    .transaksi-layout {
+        margin-left: 0;
+        padding: 20px 16px;
+        padding-bottom: 80px;
+    }
+
+    .input-logistik,
+    .daftar-logistik,
+    .section-greeting,
+    .danger-section,
+    #status-keuangan,
+    #grafik-keuangan,
+    #kategori-terbesar-keuangan,
+    #rata-rata-keuangan {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .input-logistik  { margin-top: 20px; }
+    .section-greeting { margin-top: 20px; }
+
+    .site-footer { display: none; }
+}

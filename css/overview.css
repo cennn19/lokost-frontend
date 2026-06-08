@@ -1,0 +1,369 @@
+/* ==================================================
+   OVERVIEW PAGE
+================================================== */
+
+/* =========================
+   LAYOUT
+========================= */
+.main-content{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+/* =========================
+   CARD BASE
+========================= */
+.section-greeting,
+.section-kategori,
+.section-transaksi{
+    background:var(--bg-surface);
+
+    border-radius:var(--radius-lg);
+
+    padding:28px;
+
+    box-shadow:var(--shadow-md);
+
+    border:1px solid var(--border);
+}
+
+/* =========================
+   GREETING
+========================= */
+.section-greeting{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.greeting-text{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.greeting-label{
+    font-size:2rem;
+    font-weight:700;
+
+    color:var(--text-heading);
+}
+
+.greeting-date{
+    color:var(--text-secondary);
+    font-size:.95rem;
+}
+
+.budget-status-badge{
+    display:inline-flex;
+
+    align-items:center;
+
+    width:fit-content;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    font-size:.85rem;
+    font-weight:600;
+}
+
+/* =========================
+   BUDGET SUMMARY
+========================= */
+.section-budget-summary{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
+
+    gap:20px;
+}
+
+.budget-card{
+    background:var(--bg-surface);
+
+    border-radius:var(--radius-lg);
+
+    border:1px solid var(--border);
+
+    padding:24px;
+
+    box-shadow:var(--shadow-md);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.budget-card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-lg);
+}
+
+.budget-card.highlight{
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #6366f1
+        );
+
+    color:white;
+
+    border:none;
+}
+
+.card-label{
+    font-size:.95rem;
+
+    opacity:.85;
+}
+
+.card-amount{
+    font-size:2rem;
+    font-weight:700;
+
+    margin-top:8px;
+}
+
+.card-sublabel{
+    margin-top:6px;
+
+    font-size:.9rem;
+
+    opacity:.85;
+}
+
+/* =========================
+   SECTION HEADER
+========================= */
+.section-header{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:1.4rem;
+    font-weight:700;
+
+    color:var(--text-heading);
+}
+
+.section-link{
+    color:var(--primary);
+
+    font-weight:600;
+
+    transition:.2s ease;
+}
+
+.section-link:hover{
+    opacity:.8;
+}
+
+/* =========================
+   KATEGORI
+========================= */
+.kategori-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.kategori-item{
+    background:#f8fafc;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.kategori-item:hover{
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-sm);
+}
+
+.kategori-info{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    margin-bottom:12px;
+}
+
+.kategori-nama{
+    font-weight:600;
+
+    color:var(--text-heading);
+}
+
+.kategori-sisa{
+    color:var(--text-secondary);
+
+    font-size:.9rem;
+}
+
+.progress-bar-wrap{
+    width:100%;
+
+    height:10px;
+
+    background:#e2e8f0;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            #6366f1
+        );
+
+    border-radius:999px;
+}
+
+.kategori-persen{
+    font-size:.85rem;
+
+    color:var(--text-secondary);
+}
+
+/* =========================
+   TRANSAKSI
+========================= */
+.transaksi-list{
+    display:flex;
+    flex-direction:column;
+
+    gap:14px;
+}
+
+.transaksi-item,
+.transaksi-list li{
+    background:#f8fafc;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.transaksi-item:hover,
+.transaksi-list li:hover{
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-sm);
+}
+
+.transaksi-info{
+    display:flex;
+    flex-direction:column;
+
+    gap:4px;
+}
+
+.transaksi-nama{
+    font-weight:600;
+
+    color:var(--text-heading);
+}
+
+.transaksi-kategori{
+    color:var(--text-secondary);
+
+    font-size:.85rem;
+}
+
+.transaksi-nominal{
+    font-weight:700;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+.empty-state{
+    text-align:center;
+
+    padding:24px;
+
+    color:var(--text-secondary);
+}
+
+.btn-catat{
+    margin-top:14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:768px){
+
+    .section-greeting,
+    .section-kategori,
+    .section-transaksi{
+        padding:22px;
+    }
+
+    .greeting-label{
+        font-size:1.6rem;
+    }
+
+    .card-amount{
+        font-size:1.6rem;
+    }
+
+    .section-header{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+    }
+
+    .kategori-info{
+        flex-direction:column;
+    }
+
+}

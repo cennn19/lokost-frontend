@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaksi - Lokost</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="css/navigasi.css">
+    <link rel="stylesheet" href="css/transaksi.css">
+    <link rel="icon" type="image/png" href="asset/icon-192.png" />
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <header class="site-header">
+        <div class="nav-logo">
+            <div class="logo-box"><img src="asset/icon-192.png" alt="" width="36px" height="36px"></div>
+            <span class="logo-text">Lokost</span>
+        </div>
+        <nav class="nav-menu" aria-label="Menu utama">
+            <ul>
+                <li><a href="index.html" class="nav-link" data-page="overview"><span class="nav-icon"><i class="ti ti-layout-dashboard"></i></span><span class="nav-label">Overview</span></a></li>
+                <li><a href="transaksi.html" class="nav-link active" data-page="transaksi"><span class="nav-icon"><i class="ti ti-arrows-exchange"></i></span><span class="nav-label">Transaksi</span></a></li>
+                <li><a href="logistik.html" class="nav-link" data-page="logistik"><span class="nav-icon"><i class="ti ti-package"></i></span><span class="nav-label">Logistik</span></a></li>
+                <li><a href="budget.html" class="nav-link" data-page="budget"><span class="nav-icon"><i class="ti ti-wallet"></i></span><span class="nav-label">Budget</span></a></li>
+                <li><a href="insight.html" class="nav-link" data-page="insight"><span class="nav-icon"><i class="ti ti-chart-line"></i></span><span class="nav-label">Insight</span></a></li>
+                <li><a href="settings.html" class="nav-link" data-page="settings"><span class="nav-icon"><i class="ti ti-settings"></i></span><span class="nav-label">Settings</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BOTTOM NAV (Mobile) -->
+    <nav class="bottom-nav" aria-label="Menu mobile">
+        <ul>
+            <li><a href="index.html" class="bottom-nav-link"><span class="bn-icon"><i class="ti ti-layout-dashboard"></i></span><span>Overview</span></a></li>
+            <li><a href="transaksi.html" class="bottom-nav-link active"><span class="bn-icon"><i class="ti ti-arrows-exchange"></i></span><span>Transaksi</span></a></li>
+            <li><a href="logistik.html" class="bottom-nav-link"><span class="bn-icon"><i class="ti ti-package"></i></span><span>Logistik</span></a></li>
+            <li><a href="budget.html" class="bottom-nav-link"><span class="bn-icon"><i class="ti ti-wallet"></i></span><span>Budget</span></a></li>
+            <li><a href="insight.html" class="bottom-nav-link"><span class="bn-icon"><i class="ti ti-chart-line"></i></span><span>Insight</span></a></li>
+            <li><a href="settings.html" class="bottom-nav-link"><span class="bn-icon"><i class="ti ti-settings"></i></span><span>Settings</span></a></li>
+        </ul>
+    </nav>
+
+    <main class="transaksi-layout">
+        <section class="form-section">
+            <h1>Halaman Transaksi</h1>
+            <input type="text" id="nama-transaksi" placeholder="Nama transaksi">
+            <input type="number" id="nominal-transaksi" placeholder="Nominal transaksi">
+            <select id="kategori-transaksi"></select>
+            <input type="date" id="tanggal-transaksi">
+            <button id="btn-simpan-transaksi">Simpan</button>
+        </section>
+        <section class="riwayat-section">
+            <h2 class="riwayat-title">Riwayat Transaksi</h2>
+            <ul id="list-transaksi"></ul>
+        </section>
+    </main>
+
+    <script src="js/transaksi.js"></script>
+</body>
+</html>
